@@ -42,8 +42,8 @@ resource "aws_s3_bucket_policy" "my_bucket_policy" {
           "s3:ListBucket"
         ]
         Resource = [
-          data.aws_s3_bucket.my_bucket.arn,
-          "${data.aws_s3_bucket.my_bucket.arn}/*"
+          "${aws_s3_bucket.my_bucket.arn}",
+          "${aws_s3_bucket.my_bucket.arn}/*"
         ]
       }
     ]
