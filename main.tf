@@ -15,7 +15,7 @@ provider "aws" {
 
 
 # S3 Bucket
-resource "aws_s3_bucket" "my_bucket" {
+data "aws_s3_bucket" "my_bucket" {
   bucket = var.bucket_name
 
 
@@ -42,8 +42,8 @@ resource "aws_s3_bucket_policy" "my_bucket_policy" {
           "s3:ListBucket"
         ]
         Resource = [
-          "${aws_s3_bucket.my_bucket.arn}",
-          "${aws_s3_bucket.my_bucket.arn}/*"
+          data.aws_s3_bucket.my_bucket.arn,
+          "${data.aws_s3_bucket.my_bucket.arn}/*"
         ]
       }
     ]
