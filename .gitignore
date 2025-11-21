@@ -1,0 +1,42 @@
+# Local .terraform directories
+**/.terraform/*
+.terraform/
+
+# Terraform state files
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate
+*.tfstate.backup
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Terraform plan files
+*.tfplan
+tfplan
+
+# Override files (optional, local use only)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Sensitive terraform variable files
+terraform.tfvars
+*.tfvars
+*.tfvars.json
+*.auto.tfvars
+*.auto.tfvars.json
+
+# Local backend files (do not commit!)
+.terraform.lock.hcl
+backend.tf
+backend.hcl
+backend-config.hcl
+
+# Provider plugin cache (optional)
+.terraform.d/
+
+# macOS system files
+.DS_Store
