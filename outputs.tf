@@ -1,3 +1,4 @@
-output "public_ip" {
-  value = aws_instance.my_ec2.public_ip
+
+output "aws_s3_bucket" {
+  value = aws_s3_bucket.my_bucket.id
 }
