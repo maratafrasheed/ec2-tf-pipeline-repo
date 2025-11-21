@@ -24,7 +24,27 @@ resource "aws_s3_bucket" "my_bucket" {
     Environment = var.environment
   }
 }
+resource "aws_s3_bucket_policy" "my_bucket_policy" {
+  bucket = aws_s3_bucket.my_bucket.id
 
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect    = "Allow"
+        Principal = "*"
+        Action    = [
+          "s3:GetObject",
+          "s3:ListBucket"
+        ]
+        Resource = [
+          "${aws_s3_bucket.my_bucket.arn}",
+          "${aws_s3_bucket.my_bucket.arn}/*"
+        ]
+      }
+    ]
+  })
+}
 # Optional: enable versioning
 # resource "aws_s3_bucket_versioning" "versioning" {
 #   bucket = aws_s3_bucket.my_bucket.id
